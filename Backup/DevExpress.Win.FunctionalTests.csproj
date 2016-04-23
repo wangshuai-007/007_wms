@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{33F082A2-AF27-4136-83F4-0B970E3055A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DevExpress.Win.FunctionalTests</RootNamespace>
+    <AssemblyName>DevExpress.Win.FunctionalTests.v15.2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Bin\Framework\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Bin\Framework\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.CodedUIExtension.v15.2">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\Framework\DevExpress.CodedUIExtension.v15.2.dll</HintPath>
+    <Private>False</Private></Reference>
+    <Reference Include="DevExpress.Data.v15.2">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\Framework\DevExpress.Data.v15.2.dll</HintPath>
+    <Private>False</Private></Reference>
+    <Reference Include="DevExpress.Utils.v15.2">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Bin\Framework\DevExpress.Utils.v15.2.dll</HintPath>
+    <Private>False</Private></Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System"><Private>False</Private></Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    <Private>False</Private></Reference>
+    <Reference Include="System.Data"><Private>False</Private></Reference>
+    <Reference Include="System.Drawing"><Private>False</Private></Reference>
+    <Reference Include="System.Windows.Forms"><Private>False</Private></Reference>
+    <Reference Include="UIAutomationTypes"><Private>False</Private></Reference>
+    <Reference Include="WindowsBase"><Private>False</Private></Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BarSimplePadTests\BarSimplePadTests.cs" />
+    <Compile Include="ApplicationUITests\ApplicationUITests.cs" />
+    <Compile Include="ApplicationUITests\DockPanelTests.cs" />
+    <Compile Include="ApplicationUITests\DocumentManagerTests.cs" />
+    <Compile Include="DockingTests\DockingTests.cs" />
+    <Compile Include="EditorTests\CheckBoxTests.cs" />
+    <Compile Include="EditorTests\ControlTests.cs" />
+    <Compile Include="EditorTests\EditorsDemoModules.cs" />
+    <Compile Include="EditorTests\PopupEditorsTests.cs" />
+    <Compile Include="EditorTests\RadioGroupTests.cs" />
+    <Compile Include="EditorTests\SpinEditorsTests.cs" />
+    <Compile Include="EditorTests\TextBoxTest.cs" />
+    <Compile Include="EditorTests\TrackBarsTests.cs" />
+    <Compile Include="GridTests\AutoFilterRowTests.cs" />
+    <Compile Include="GridTests\AutoRowHeightTests.cs" />
+    <Compile Include="GridTests\CellAndRowSelectionTests.cs" />
+    <Compile Include="GridTests\ColumnCustomizationTests.cs" />
+    <Compile Include="GridTests\CustomSummaryTests.cs" />
+    <Compile Include="GridTests\DataFilteringTests.cs" />
+    <Compile Include="GridTests\DataSummariesTests.cs" />
+    <Compile Include="GridTests\FilterControlTests.cs" />
+    <Compile Include="GridTests\FindPanelTests.cs" />
+    <Compile Include="GridTests\FixedBandsAndColumnsTests.cs" />
+    <Compile Include="GridTests\FormatConditionsTests.cs" />
+    <Compile Include="GridTests\GridLookUpEditorTests.cs" />
+    <Compile Include="GridTests\GridViewTests.cs" />
+    <Compile Include="GridTests\GroupIntervalTests.cs" />
+    <Compile Include="GridTests\MasterDetailGroupingTests.cs" />
+    <Compile Include="GridTests\GridDemoModules.cs" />
+    <Compile Include="GridTests\MultiEditorsTests.cs" />
+    <Compile Include="GridTests\MultipleValuesGroupingTests.cs" />
+    <Compile Include="GridTests\SearchLookUpEditorTests.cs" />
+    <Compile Include="GridTests\SortingBySummaryTests.cs" />
+    <Compile Include="GridTests\SplitPresentationTests.cs" />
+    <Compile Include="GridTests\SpreadSheetTests.cs" />
+    <Compile Include="GridTests\TableLayoutTests.cs" />
+    <Compile Include="GridTests\UnboundExpressionsTests.cs" />
+    <Compile Include="HandCodingTests\HandCodingTestSamples.cs" />
+    <Compile Include="LayoutTests\LayoutControlTests.cs" />
+    <Compile Include="NavBarTests\NavBarTests.cs" />
+    <Compile Include="PivotGridTests\PivotGridTests.cs" />
+    <Compile Include="PrintingTests\PrintPreviewTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RibbonTests\RibbonSimplePadTests.cs" />
+    <Compile Include="TestHelper.cs" />
+    <Compile Include="TreeListTests\TreeListMainDemoTests.cs" />
+    <Compile Include="TreeListTests\TreeListTutorialsTests.cs" />
+    <Compile Include="UIMaps\PivotGridUIMap.cs">
+      <DependentUpon>PivotGridUIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMaps\PivotGridUIMap.Designer.cs">
+      <DependentUpon>PivotGridUIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMaps\DockingPanelsUIMap.cs">
+      <DependentUpon>DockingPanelsUIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMaps\DockingPanelsUIMap.Designer.cs">
+      <DependentUpon>DockingPanelsUIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMaps\LayoutControlUIMap.cs">
+      <DependentUpon>LayoutControlUIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMaps\LayoutControlUIMap.Designer.cs">
+      <DependentUpon>LayoutControlUIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMaps\UIMap.cs">
+      <DependentUpon>UIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMaps\UIMap.Designer.cs">
+      <DependentUpon>UIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMaps\UIMapForHandCodingTests.cs">
+      <DependentUpon>UIMapForHandCodingTests.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMaps\UIMapForHandCodingTests.Designer.cs">
+      <DependentUpon>UIMapForHandCodingTests.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMaps\VerticalGridTreeListUIMap.cs">
+      <DependentUpon>VerticalGridTreeListUIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="UIMaps\VerticalGridTreeListUIMap.Designer.cs">
+      <DependentUpon>VerticalGridTreeListUIMap.uitest</DependentUpon>
+    </Compile>
+    <Compile Include="VerticalGridTest\PropertyGridTests.cs" />
+    <Compile Include="VerticalGridTest\VerticalGridMainDemoTests.cs" />
+    <Compile Include="VerticalGridTest\VerticalGridTutorialsTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    
+    
+    
+    
+    
+    
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

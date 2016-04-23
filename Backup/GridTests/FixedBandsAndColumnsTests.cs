@@ -1,0 +1,169 @@
+﻿#region Copyright (c) 2000-2015 Developer Express Inc.
+/*
+{*******************************************************************}
+{                                                                   }
+{       Developer Express .NET Component Library                    }
+{       WinForms Controls                                           }
+{                                                                   }
+{       Copyright (c) 2000-2015 Developer Express Inc.              }
+{       ALL RIGHTS RESERVED                                         }
+{                                                                   }
+{   The entire contents of this file is protected by U.S. and       }
+{   International Copyright Laws. Unauthorized reproduction,        }
+{   reverse-engineering, and distribution of all or any portion of  }
+{   the code contained in this file is strictly prohibited and may  }
+{   result in severe civil and criminal penalties and will be       }
+{   prosecuted to the maximum extent possible under the law.        }
+{                                                                   }
+{   RESTRICTIONS                                                    }
+{                                                                   }
+{   THIS SOURCE CODE AND ALL RESULTING INTERMEDIATE FILES           }
+{   ARE CONFIDENTIAL AND PROPRIETARY TRADE                          }
+{   SECRETS OF DEVELOPER EXPRESS INC. THE REGISTERED DEVELOPER IS   }
+{   LICENSED TO DISTRIBUTE THE PRODUCT AND ALL ACCOMPANYING .NET    }
+{   CONTROLS AS PART OF AN EXECUTABLE PROGRAM ONLY.                 }
+{                                                                   }
+{   THE SOURCE CODE CONTAINED WITHIN THIS FILE AND ALL RELATED      }
+{   FILES OR ANY PORTION OF ITS CONTENTS SHALL AT NO TIME BE        }
+{   COPIED, TRANSFERRED, SOLD, DISTRIBUTED, OR OTHERWISE MADE       }
+{   AVAILABLE TO OTHER INDIVIDUALS WITHOUT EXPRESS WRITTEN CONSENT  }
+{   AND PERMISSION FROM DEVELOPER EXPRESS INC.                      }
+{                                                                   }
+{   CONSULT THE END USER LICENSE AGREEMENT FOR INFORMATION ON       }
+{   ADDITIONAL RESTRICTIONS.                                        }
+{                                                                   }
+{*******************************************************************}
+*/
+#endregion Copyright (c) 2000-2015 Developer Express Inc.
+
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Windows.Input;
+using System.Windows.Forms;
+using System.Drawing;
+using Microsoft.VisualStudio.TestTools.UITesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UITest.Extension;
+using DevExpress.Win.FunctionalTests.UIMaps.UIMapClasses;
+using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
+using DevExpress.CodedUIExtension.DXTestControls.v15_2;
+namespace DevExpress.Win.FunctionalTests {
+	[CodedUITest]
+	public class FixedBandsAndColumnsTests {
+		public FixedBandsAndColumnsTests() {
+		}
+		[Timeout(TestInitializer.timeOut), TestCategory("S173236"), TestCategory("GridEditorsNavBar"), TestCategory("VS11"), TestMethod]
+		public void ScrollingInSimpleFixedBandsTabViaMouseTest() {
+			using(new GridsTestInitializer()) {
+				this.UIMap.SwitchToFixedBandsDemoModule();
+				this.UIMap.ScrollingInSimpleFixedBandsTabViaMouse();
+				this.UIMap.TryClickFixedColumnInSimpleFixedBandsTab();
+			}
+		}
+		[Timeout(TestInitializer.timeOut), TestCategory("WorkOnFarm"), TestCategory("GridEditorsNavBar"), TestCategory("VS11"), TestMethod]
+		public void ScrollingInSimpleFixedBandsTabViaKeyboardTest() {
+			using(new GridsTestInitializer()) {
+				this.UIMap.SwitchToFixedBandsDemoModule();
+				this.UIMap.ScrollingInSimpleFixedBandsTabViaKeyboard();
+				this.UIMap.TryClickFixedColumnInSimpleFixedBandsTab();
+			}
+		}
+		[Timeout(TestInitializer.timeOutForSlowTests), TestCategory("WorkOnFarm"), TestCategory("GridEditorsNavBar"), TestCategory("VS11"), TestMethod]
+		public void RecalculateSummariesInSimpleFixedBandsTabTest() {
+			using(new GridsTestInitializer()) {
+				this.UIMap.SwitchToFixedBandsDemoModule();
+				this.UIMap.ChangeCellValuesInSimpleFixedBandsTab();
+				this.UIMap.CheckRecalculatedValuesInSimpleFixedBandsTab();
+			}
+		}
+		[Timeout(TestInitializer.timeOut), TestCategory("WorkOnFarm"), TestCategory("GridEditorsNavBar"), TestCategory("VS11"), TestMethod]
+		public void ResizeFixedBandTest() {
+			using(new GridsTestInitializer()) {
+				this.UIMap.SwitchToFixedBandsDemoModule();
+				DXGridBand uIGridBand1GridBand = UIMap.UIXtraGridFeaturesDemoWindow3.UIPanelControl1Client.UIGcContainerClient.UIFixedBandsCustom.UIXtraTabControl1TabList.UIXtraTabPage1Client.UIGridControl1Table.UIGridBand1GridBand;
+				DXColumnHeader uIGrColumnMakerColumnHeader = UIMap.UIXtraGridFeaturesDemoWindow3.UIPanelControl1Client.UIGcContainerClient.UIFixedBandsCustom.UIXtraTabControl1TabList.UIXtraTabPage1Client.UIGridControl1Table.UIGrColumnMakerColumnHeader;
+				Size oldSizeGridBand1 = (Size)DevExpress.Utils.CodedUISupport.CodedUIUtils.ConvertFromString((String)uIGridBand1GridBand.GetProperty("Size"), typeof(Size).FullName);
+				Size oldSizeGrColumn = (Size)DevExpress.Utils.CodedUISupport.CodedUIUtils.ConvertFromString((String)uIGrColumnMakerColumnHeader.GetProperty("Size"), typeof(Size).FullName);
+				this.UIMap.ResizeFixedBand();
+				Size newSizeGridBand1 = (Size)DevExpress.Utils.CodedUISupport.CodedUIUtils.ConvertFromString((String)uIGridBand1GridBand.GetProperty("Size"), typeof(Size).FullName);
+				Size newSizeGrColumn = (Size)DevExpress.Utils.CodedUISupport.CodedUIUtils.ConvertFromString((String)uIGrColumnMakerColumnHeader.GetProperty("Size"), typeof(Size).FullName);
+				Assert.IsTrue(newSizeGridBand1.Width > oldSizeGridBand1.Width && newSizeGrColumn.Width > oldSizeGrColumn.Width);
+			}
+		}
+		[Timeout(TestInitializer.timeOut), TestCategory("S173236"), TestCategory("GridEditorsNavBar"), TestCategory("VS11"), TestMethod]
+		public void ScrollingInFixedBandsAndGroupingTabViaMouseTest() {
+			using(new GridsTestInitializer()) {
+				this.UIMap.SwitchToFixedBandsDemoModule();
+				this.UIMap.SwitchToFixedBandsAndGroupingTab();
+				this.UIMap.ScrollingInFixedBandsAndGroupingTabViaMouse();
+				this.UIMap.TryClickFixedColumnInFixedBandsAndGroupingTab();
+			}
+		}
+		[Timeout(TestInitializer.timeOutForSlowTests), TestCategory("WorkOnFarm"), TestCategory("GridEditorsNavBar"), TestCategory("VS11"), TestMethod]
+		public void ScrollingInFixedBandsAndGroupingTabViaKeyboardTest() {
+			using(new GridsTestInitializer()) {
+				this.UIMap.SwitchToFixedBandsDemoModule();
+				this.UIMap.SwitchToFixedBandsAndGroupingTab();
+				this.UIMap.ScrollingInFixedBandsAndGroupingTabViaKeyboard();
+				this.UIMap.TryClickFixedColumnInFixedBandsAndGroupingTab();
+			}
+		}
+		[Timeout(TestInitializer.timeOutForSlowTests), TestCategory("WorkOnFarm"), TestCategory("GridEditorsNavBar"), TestCategory("VS11"), TestMethod]
+		public void RecalculateSummariesInFixedBandsAndGroupingTabTest() {
+			using(new GridsTestInitializer()) {
+				this.UIMap.SwitchToFixedBandsDemoModule();
+				this.UIMap.SwitchToFixedBandsAndGroupingTab();
+				this.UIMap.ChangeCellValuesInFixedBandsAndGroupingTab();
+				this.UIMap.CheckRecalculatedValuesInFixedBandsAndGroupingTab();
+			}
+		}
+		[Timeout(TestInitializer.timeOut), TestCategory("S173236"), TestCategory("GridEditorsNavBar"), TestCategory("VS11"), TestMethod]
+		public void NonFixedOptionTest() {
+			using(new GridsTestInitializer()) {
+				this.UIMap.SwitchToFixedColumnsDemoModule();
+				DXColumnHeader uIColCompanyNameColumnHeader = UIMap.UIXtraGridFeaturesDemoWindow2.UIPanelControl1Client.UIGcContainerClient.UIFixedColumnsCustom.UIGridControl2Table.UIColCompanyNameColumnHeader;
+				Size oldColumnHeaderLocation = (Size)DevExpress.Utils.CodedUISupport.CodedUIUtils.ConvertFromString((String)uIColCompanyNameColumnHeader.GetProperty("Location"), typeof(Size).FullName);
+				this.UIMap.MakeColumnNonFixedAndScroll();
+				Size newColumnHeaderLocation = (Size)DevExpress.Utils.CodedUISupport.CodedUIUtils.ConvertFromString((String)uIColCompanyNameColumnHeader.GetProperty("Location"), typeof(Size).FullName);
+				Assert.IsTrue(newColumnHeaderLocation.Width < oldColumnHeaderLocation.Width);
+			}
+		}
+		[Timeout(TestInitializer.timeOut), TestCategory("S173236"), TestCategory("GridEditorsNavBar"), TestCategory("VS11"), TestMethod]
+		public void FixedLeftOptionTest() {
+			using(new GridsTestInitializer()) {
+				this.UIMap.SwitchToFixedColumnsDemoModule();
+				this.UIMap.AddNewFixedColumnToLeftAndScroll();
+				this.UIMap.TryClickNewLeftFixedColumn();
+			}
+		}
+		[Timeout(TestInitializer.timeOut), TestCategory("S173236"), TestCategory("GridEditorsNavBar"), TestCategory("VS11"), TestMethod]
+		public void FixedRightOptionTest() {
+			using(new GridsTestInitializer()) {
+				this.UIMap.SwitchToFixedColumnsDemoModule();
+				this.UIMap.AddNewFixedColumnToRightAndScroll();
+				this.UIMap.TryClickNewRightFixedColumn();
+			}
+		}
+		#region Additional test attributes
+		#endregion
+		public TestContext TestContext {
+			get {
+				return testContextInstance;
+			}
+			set {
+				testContextInstance = value;
+			}
+		}
+		private TestContext testContextInstance;
+		public UIMap UIMap {
+			get {
+				if((this.map == null)) {
+					this.map = new UIMap();
+				}
+				return this.map;
+			}
+		}
+		private UIMap map;
+	}
+}
